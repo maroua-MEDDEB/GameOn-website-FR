@@ -23,7 +23,6 @@ const inputCondition = document.querySelector("input[type=checkbox]");
 const inputDate = document.querySelector("input[type=date]");
 
 const form = document.querySelector("form");
-// Bouton de confirmation
 const inputConfirmBtn = document.querySelector("input[type=submit]");
 
 // Modal de confirmation
@@ -104,7 +103,10 @@ function validationText1(element) {
   //On doit vérifier que l'utilisateur tape un nom valide (Un nom valide contient au moins deux caractères)
   // cas où l'utilisateur saisie moins de 2 caractères
   if (element.value.length < 2) {
-    parentEl.setAttribute("data-error", "Veuillez saisir votre vrai prénom!");
+    parentEl.setAttribute(
+      "data-error",
+      "Veuillez entrer 2 caractères ou plus pour le champ du prenom."
+    );
     parentEl.setAttribute("data-error-visible", "true");
     return false;
   } else {
@@ -120,7 +122,10 @@ function validationText2(element) {
   const parentEl = element.closest(".formData");
 
   if (element.value.length < 2) {
-    parentEl.setAttribute("data-error", "Veuillez saisir votre vrai nom!");
+    parentEl.setAttribute(
+      "data-error",
+      "Veuillez entrer 2 caractères ou plus pour le champ du nom."
+    );
     parentEl.setAttribute("data-error-visible", "true");
     return false;
   } else {
@@ -159,10 +164,7 @@ function validationNumber(element) {
     parentEl.setAttribute("data-error-visible", "false");
     return true;
   } else {
-    parentEl.setAttribute(
-      "data-error",
-      "Veuillez saisir un nombre supérieur à 0!"
-    );
+    parentEl.setAttribute("data-error", "Veuillez entrer un nombre valide.");
     parentEl.setAttribute("data-error-visible", "true");
     return false;
   }
@@ -186,7 +188,7 @@ function validationRadio() {
     parentEl.setAttribute("data-error-visible", "false");
     return true;
   } else {
-    parentEl.setAttribute("data-error", "Veuillez choisir un tournoi!");
+    parentEl.setAttribute("data-error", "Vous devez choisir une option.");
     parentEl.setAttribute("data-error-visible", "true");
     return false;
   }
@@ -201,7 +203,7 @@ function validationCondition(element) {
   } else {
     parentEl.setAttribute(
       "data-error",
-      "Veuillez accepter les conditions générales!"
+      "Vous devez vérifier que vous acceptez les termes et conditions."
     );
     parentEl.setAttribute("data-error-visible", "true");
     return false;
@@ -218,7 +220,7 @@ function validationDate(element) {
   if (dateOfBirth === "") {
     parentEl.setAttribute(
       "data-error",
-      "Veuillez saisir votre date de naissance!"
+      "Vous devez entrer votre date de naissance."
     );
     parentEl.setAttribute("data-error-visible", "true");
     return false;
@@ -256,14 +258,6 @@ function validationForm(e) {
   const isCheckboxValidate = validationCondition(inputCondition);
   const isDateValidate = validationDate(inputDate);
 
-  /*console.log(isInputText1);
-  console.log(isInputText2);
-  console.log(isMailValidate);
-  console.log(isDateValidate);
-  console.log(isNumberValidate);
-  console.log(isRadioValidate);
-  console.log(isCheckboxValidate);*/
-
   if (
     isInputText1 == true &&
     isInputText2 == true &&
@@ -281,13 +275,6 @@ function validationForm(e) {
 
 //L'état du formulaire par défaut (Naturellement avant l'intervention de l'utilisateur)
 function resetForm() {
-  // inputText1.value = null;
-  // inputText2.value = null;
-  // inputEmail.value = null;
-  // inputNumber.value = null;
-  // isRadioValidate = false;
-  // isCheckboxValidate = false;
-  // inputDate.value = null;
   form.reset();
   modalConfirm.style.display = "none";
   inputConfirmBtn.removeAttribute("disabled");
