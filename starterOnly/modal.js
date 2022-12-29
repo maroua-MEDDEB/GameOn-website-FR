@@ -12,7 +12,9 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
-const closeBtn = document.querySelector(".close"); // selectionner l'élément close
+// selectionner l'élément close
+const closeBtn = document.querySelector(".close");
+
 const inputText1 = document.querySelector("#first");
 const inputText2 = document.querySelector("#last");
 
@@ -28,6 +30,10 @@ const inputConfirmBtn = document.querySelector("input[type=submit]");
 // Modal de confirmation
 const modalConfirm = document.querySelector(".modalConfirmation");
 
+// bouton de fermeture de modal de confirmation
+const butonClose = document.querySelector(".btnFermConfirm");
+
+// évênnements:
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -77,6 +83,9 @@ inputDate.addEventListener("input", function (event) {
 // validation btn formulaire
 inputConfirmBtn.addEventListener("click", validationForm);
 
+//fermeture buton de fermeture du modal de de confirmation
+butonClose.addEventListener("click", closeModal);
+
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
@@ -91,7 +100,7 @@ function confirmButon() {
 
 //function Close modal
 function closeModal() {
-  //modalbg.style.display = "none";
+  modalbg.style.display = "none";
   resetForm();
 }
 
@@ -272,6 +281,10 @@ function validationForm(e) {
     inputConfirmBtn.setAttribute("disabled", "true");
   }
 }
+// fermer le modal de confirmation avec le buton fermer
+// function closeModalConfirmation() {
+//   modalConfirm.style.display = "none";
+// }
 
 //L'état du formulaire par défaut (Naturellement avant l'intervention de l'utilisateur)
 function resetForm() {
