@@ -45,12 +45,18 @@ form.addEventListener("submit", confirmButon);
 
 //validation du champs de saisie inputText1
 inputText1.addEventListener("input", function (event) {
-  validationText1(event.target);
+  validationText(
+    event.target,
+    "Veuillez entrer 2 caractères ou plus pour le champ du prenom."
+  );
 });
 
 //validation du champs de saisie inputText2
 inputText2.addEventListener("input", function (event) {
-  validationText2(event.target);
+  validationText(
+    event.target,
+    "Veuillez entrer 2 caractères ou plus pour le champ du nom."
+  );
 });
 
 //validation email
@@ -105,39 +111,18 @@ function closeModal() {
 }
 
 // function valisationText1
-function validationText1(element) {
+function validationText(element, messageError) {
   //Chercher le parent de classe "fordata" le plus proche de "element"
   const parentEl = element.closest(".formData");
 
   //On doit vérifier que l'utilisateur tape un nom valide (Un nom valide contient au moins deux caractères)
   // cas où l'utilisateur saisie moins de 2 caractères
-  if (element.value.length < 2) {
-    parentEl.setAttribute(
-      "data-error",
-      "Veuillez entrer 2 caractères ou plus pour le champ du prenom."
-    );
+  if (element.value.trim().length < 2) {
+    parentEl.setAttribute("data-error", messageError);
     parentEl.setAttribute("data-error-visible", "true");
     return false;
   } else {
     // cas où l'utilisateur saisie plus de 2 caractères
-    parentEl.setAttribute("data-error", "");
-    parentEl.setAttribute("data-error-visible", "false");
-    return true;
-  }
-}
-
-//On doit vérifier que l'utilisateur tape un prenom valide
-function validationText2(element) {
-  const parentEl = element.closest(".formData");
-
-  if (element.value.length < 2) {
-    parentEl.setAttribute(
-      "data-error",
-      "Veuillez entrer 2 caractères ou plus pour le champ du nom."
-    );
-    parentEl.setAttribute("data-error-visible", "true");
-    return false;
-  } else {
     parentEl.setAttribute("data-error", "");
     parentEl.setAttribute("data-error-visible", "false");
     return true;
@@ -258,8 +243,8 @@ function validationDate(element) {
 function validationForm(e) {
   e.preventDefault(); //pas valider le formulaire
   // const isInputValidate = validationInput(inputText);
-  const isInputText1 = validationText1(inputText1);
-  const isInputText2 = validationText2(inputText2);
+  const isInputText1 = validationText(inputText1, "");
+  const isInputText2 = validationText(inputText2, "");
 
   const isMailValidate = validationMail(inputEmail);
   const isNumberValidate = validationNumber(inputNumber);

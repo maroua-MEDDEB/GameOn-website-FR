@@ -78,6 +78,8 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
+    /* couleur icone menu est en rouge */
+    color: red;
   }
 }
 
@@ -112,10 +114,12 @@ main {
   font-size: 130%;
   font-weight: bolder;
   color: black;
-  padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 1px 20px 15px;
+  /*padding-top: 0.5vw;*/
+  /*padding-left: 2vw;
+  padding-right: 2vw;*/
+  /*margin: 1px 20px 15px; Corriger le margin*/
+  margin-left: 3.5%;
+  margin-right: 3.5%;
   border-radius: 2rem;
   text-align: justify;
 }
@@ -168,6 +172,7 @@ main {
   z-index: 1;
   left: 0;
   top: 0;
+  bottom: 0;
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -443,7 +448,8 @@ input {
   margin-bottom: 10px;
 }
 .hero-content {
-  padding: 51px 67px;
+  /*padding: 51px 67px;*/
+  padding: 51px 0;
   grid-column: span 4;
   background: #232323;
   color: #fff;
@@ -516,7 +522,8 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 20px 0;
   }
   .hero-content::after {
     content: unset;
@@ -525,8 +532,10 @@ footer {
     display: none;
   }
   .hero-headline {
+    margin: 0 !important;
     font-size: 4.5rem;
     white-space: normal;
+    padding: 0 !important;
   }
   .hero-text {
     width: unset;
