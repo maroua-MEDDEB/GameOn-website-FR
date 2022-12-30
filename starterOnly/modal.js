@@ -8,6 +8,7 @@ function editNav() {
 }
 
 // DOM Elements
+const body = document.querySelector("body");
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
@@ -95,6 +96,8 @@ butonClose.addEventListener("click", closeModal);
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+
+  window.scrollTo(0, 0);
 }
 
 //
@@ -276,4 +279,5 @@ function resetForm() {
   form.reset();
   modalConfirm.style.display = "none";
   inputConfirmBtn.removeAttribute("disabled");
+  //body.style.overflow = "auto";
 }

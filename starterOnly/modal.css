@@ -106,7 +106,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    /*margin-top: -15px;*/
   }
 }
 
@@ -171,6 +171,7 @@ main {
   position: fixed;
   z-index: 1;
   left: 0;
+  right: 0;
   top: 0;
   bottom: 0;
   height: 100%;
@@ -183,7 +184,7 @@ main {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
-  animation-name: modalopen;
+  /* animation-name: modalopen; */
   animation-duration: var(--modal-duration);
   background: #232323;
   border-radius: 10px;
@@ -191,6 +192,18 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    margin: 0 auto;
+    max-width: none;
+  }
+
+  .bground {
+    top: 100px;
+    height: auto;
+  }
 }
 
 .modal-body {
@@ -448,8 +461,8 @@ input {
   margin-bottom: 10px;
 }
 .hero-content {
-  /*padding: 51px 67px;*/
-  padding: 51px 0;
+  padding: 51px 67px;
+  /* padding: 51px 0; */
   grid-column: span 4;
   background: #232323;
   color: #fff;
